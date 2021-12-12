@@ -1,7 +1,9 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Controller implements KeyListener {
+public class Controller implements KeyListener, ActionListener {
     private Model model;
 
     public Controller(Viewer viewer) {
@@ -42,4 +44,15 @@ public class Controller implements KeyListener {
                 return;
         }
     }
+
+    public void cancelGame() {
+        model.closeServerConnection();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent actionEvent) {
+        int level = Integer.parseInt(actionEvent.getActionCommand());
+        model.startChoosedLevel(level);
+    }
+
 }

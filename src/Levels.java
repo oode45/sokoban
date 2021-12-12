@@ -12,7 +12,8 @@ public class Levels {
         return desktop;
     }
 
-    private int[][] convertStrTo2DArray(String line) {
+    public int[][] convertStrTo2DArray(String line) {
+        System.out.println(line);
         int row = 0;
         for (int i = 0; i < line.length(); i++) {
             char symbol = line.charAt(i);
